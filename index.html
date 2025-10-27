@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog Site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .blog-post {
+      margin-bottom: 40px;
+    }
+
+    .comment-section {
+      border-top: 2px solid #ddd;
+      padding-top: 20px;
+    }
+
+    .comment {
+      background: #f1f1f1;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>My Blog Site</h1>
+
+    <div class="blog-post">
+      <h2>How I Built My First Blog</h2>
+      <p>
+        Creating my first blog was an exciting experience. I learned how to structure pages using HTML, 
+        style them using CSS, and add functionality using JavaScript. This project helped me understand 
+        the importance of front-end development in creating interactive websites.
+      </p>
+    </div>
+
+    <div class="comment-section">
+      <h3>Leave a Comment</h3>
+      <form id="commentForm">
+        <input type="text" id="name" placeholder="Your name" required>
+        <textarea id="comment" placeholder="Write your comment here..." required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+
+      <h3>Comments:</h3>
+      <div id="commentList"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('commentForm');
+    const commentList = document.getElementById('commentList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const comment = document.getElementById('comment').value;
+
+      if (name && comment) {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+        commentList.appendChild(commentDiv);
+
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
